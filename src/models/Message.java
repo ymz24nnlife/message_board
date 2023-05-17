@@ -8,8 +8,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(
+			name = "getAllMessages",
+			query = "select m from Message as m order by m.id desc"
+	)
+})
 @Table(name = "messages")
 public class Message {
 	@Id
