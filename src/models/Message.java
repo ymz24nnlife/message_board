@@ -7,15 +7,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
 	@NamedQuery(
 			name = "getAllMessages",
 			query = "select m from Message as m order by m.id desc"
+	),
+	@NamedQuery(
+			name = "getMessagesCount",
+			query = "select count(m) from Message as m"
 	)
 })
 @Table(name = "messages")
